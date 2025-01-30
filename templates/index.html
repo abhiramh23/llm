@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welecome to Chatbot</h1>
+        <form method="post">
+            <label for="pipeline_name">Model Name:</label>
+
+            <select id="pipeline_name" name="pipeline_name" required>
+                <option value="summarization">Summarization</option>
+                <option value="text-classification">Text Classification</option>
+                <option value="translation">Translation</option>
+            </select>
+
+            <label for="input_data">Input Data:</label>
+            <textarea id="input_data" name="input_data" required></textarea>
+
+
+            <label for="max_length">Max Length:</label>
+            <input type="number" id="max_length" name="max_length" value="50">
+
+
+            <button type="submit">Submit</button>
+        </form>
+        {% if result %}
+        <h2>Result:</h2>
+        <p class="result">{{ result }}</p>
+        {% endif %}
+    </div>
+</body>
+
+</html>
